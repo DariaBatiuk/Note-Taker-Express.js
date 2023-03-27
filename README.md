@@ -1,6 +1,7 @@
 # Note Taker Starter Code
 
-# User Story
+
+User Story
 
 ```md
 AS A small business owner
