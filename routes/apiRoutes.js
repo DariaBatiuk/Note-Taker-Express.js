@@ -16,7 +16,7 @@ router.post('/notes', (req, res) =>{
 		let jsonFile = JSON.parse(data);
 		let newNote = {title:req.body.title, text:req.body.text, id:uuidv4()}
 		jsonFile.push(newNote);
-		fs.writeFile('db/db.json', JSON.stringify(jsonFile), (err) =>{
+		fs.writeFile('db/db.json', JSON.stringify(jsonFile), {encoding: "utf8"}, (err) =>{
 			if (err) throw err 
 			res.redirect('/notes')
 		})	
@@ -28,13 +28,16 @@ router.post('/notes', (req, res) =>{
 			if (err) throw err 
 			let jsonFile = JSON.parse(data);
 			// 
-			let notes = jsonFile.filter(note =>{
-				note.id !== req.params.id 
+			const notes = jsonFile.filter(note => note.id !== req.params.id)
+			// 	{
+			// 	note.id !== req.params.id 
 				
-			})
-			fs.writeFile('db/db.json', JSON.stringify(jsonFile), (err) =>{
+			// })
+			fs.writeFile('db/db.json', JSON.stringify(notes), (err) =>{
 				if (err) throw err 
-				res.redirect('/notes')
+				res.status(200);
+				res.send();
+				// redirect('/notes')
 			})	
 		})
 })

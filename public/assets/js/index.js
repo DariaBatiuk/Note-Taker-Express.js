@@ -27,10 +27,10 @@ let activeNote = {};
 
 const getNotes = () =>
   fetch('/api/notes', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    method: 'GET'
+    // headers: {
+    //   'Content-Type': 'application/json',
+    // },
   });
 
 const saveNote = (note) =>
@@ -44,10 +44,10 @@ const saveNote = (note) =>
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    method: 'DELETE'
+    // headers: {
+    //   'Content-Type': 'application/json',
+    // },
   });
 
 const renderActiveNote = () => {
@@ -72,8 +72,8 @@ const handleNoteSave = () => {
     text: noteText.value,
   };
   saveNote(newNote).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
+    getAndRenderNotes()
+		.then(()=> renderActiveNote());
   });
 };
 
@@ -89,9 +89,10 @@ const handleNoteDelete = (e) => {
     activeNote = {};
   }
 
-  deleteNote(noteId).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
+  deleteNote(noteId)
+	.then(() => {
+    getAndRenderNotes()
+		.then(() => renderActiveNote());
   });
 };
 
