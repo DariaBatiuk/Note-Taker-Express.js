@@ -34,4 +34,4 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ![image](https://user-images.githubusercontent.com/83068010/227814334-49b7610f-0169-46f2-b3e3-2e36be5dbbdf.png)
 ```
 
-* The URL of the deployed application - 
+* The URL of the deployed application - https://note-taker-app2.herokuapp.com/
