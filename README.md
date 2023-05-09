@@ -1,5 +1,8 @@
 # Note Taker Starter Code
 
+## Description 
+
+This application allows users to create, save, and remove notes. It represents my initial attempt at writing back-end code using Express framework and utilizes a JSON file to store note data.
 
 ## User Story
 
